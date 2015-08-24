@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="JmsxGroupForEMS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JmsxGroupForEMS_jar</output-path>
+    <root id="archive" name="JmsxGroupForEMS.jar">
+      <element id="module-output" name="JmsxGroupForEMS" />
+      <element id="extracted-dir" path="C:/Java/simple-xml-2.7.1/jar/simple-xml-2.7.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/tibco/MSG_HOME/as/2.1/lib/as-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/tibco/MSG_HOME/ems/8.2/lib/jms-2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/tibco/MSG_HOME/ems/8.2/lib/tibcrypt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/tibco/MSG_HOME/ems/8.2/lib/tibjms.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/tibco/MSG_HOME/ems/8.2/lib/tibjmsadmin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/Apache/apache-log4j-2.3-bin/log4j-api-2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Java/Apache/apache-log4j-2.3-bin/log4j-core-2.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
