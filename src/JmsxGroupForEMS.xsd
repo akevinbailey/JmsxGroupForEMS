@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by  () -->
+<!-- TIBCO JmsxGroupForEMS configuration file schema version 1.0. -->
+<xs:schema xmlns="http://www.tibco.com/ems/JmsxGroup" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.tibco.com/ems/JmsxGroup" targetNamespace="http://www.tibco.com/ems/JmsxGroup" elementFormDefault="qualified">
+	<xs:element name="JmsxGroupForEMS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="clientId" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A unique client ID for this instance of JmsxGroupForEMS application</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="routingThreads" type="xs:short" default="1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The number of threads per destination used for routing messages.  Default is 1.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="connectionTimeout" type="xs:int" default="2000" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>EMS and ActiveSpaces connection timeout in milliseconds.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="recordMsgStats" type="xs:boolean" default="false" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Record the message stats for each client in ActiveSpaces.  Defaluts to 'false'.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="asDiscoveryUrl" type="xs:anyURI" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The ActiveSpaces discovery URL to be used to discover the existing metaspace.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="asListenUrl" type="xs:anyURI" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Specifies the interface and port for the listening TCP socket for ActiveSpaces.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="asDistributionRole" default="SEEDER" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>ActiveSpaces distribution role can be either LEECH or SEEDER</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="SEEDER"/>
+							<xs:enumeration value="LEECH"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="asMaxMemSpaceCount" type="xs:long" default="1000000" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Capacity of the space in maximum number of entries per seeder.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="asDatastoreDir" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Specifies the directory where the ActiveSpaces persistence data is stored.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="emsConnectionUrl" type="xs:anyURI">
+					<xs:annotation>
+						<xs:documentation>The direct URL to the EMS Server.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="emsUser" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>An EMS admin user.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="emsPassword" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Password for the EMS admin user.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="emsClientIdProperty" type="xs:string" default="JMSXGroupClientID">
+					<xs:annotation>
+						<xs:documentation>The JMS property name to put the consuming ClientId.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="destinations">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="destinationParams" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="inDest" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>The name of EMS queue or topic where JmsxGroupForEMS will listen.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="inDestType">
+											<xs:annotation>
+												<xs:documentation>Q for queue and T for topic</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="Q"/>
+													<xs:enumeration value="T"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="inUseDurableTopic" type="xs:boolean" default="true" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Use a durable subscriber if the listening destination is a topic.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="outDest" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>The name of the EMS queue or topic were the Group listners will listen.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="outDestType">
+											<xs:annotation>
+												<xs:documentation>Q for queue and T for topic</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="Q"/>
+													<xs:enumeration value="T"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="sequenceType" default="GROUP_ONLY" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>GROUP_ONLY, GROUP_EXACT_SEQUENCE, or LATEST_VALUE_ONLY.  Deliver the messages in sequence as indicated by the  JMS property 'JMSXGroupSeq'.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="GROUP_ONLY"/>
+													<xs:enumeration value="GROUP_EXACT_SEQUENCE"/>
+													<xs:enumeration value="LATEST_VALUE_ONLY"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="latestValueAlternateIdProperty" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>For LATEST_VALUE_ONLY sequence types this indicates the name of the JMS property containing the unique data key of the message.  If not included the JMSXGroupID is the ID property and will be assigned to only one consumer.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="latestValueDateTimeProperty" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>For LATEST_VALUE_ONLY sequence types this indicates the name of the JMS property containing the ISO-8601 formated datetime of the data.  If not included the JMS send datetime is used. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="maxMsgSize" type="xs:long" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Max message size in bytes.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="class" use="required">
+							<xs:annotation>
+								<xs:documentation>Always "java.util.ArrayList" </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="java.util.ArrayList"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

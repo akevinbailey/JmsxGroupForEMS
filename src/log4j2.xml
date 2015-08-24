@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Properties>
+		<Property name="log-path">.</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile_Info" fileName="${log-path}/JmsxGroupForEMS.log" filePattern="${log-path}/JmsxGroupForEMS-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="10"/>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="root" level="info" additivity="true">
+			<appender-ref ref="RollingFile_Info" level="info"/>
+		</Logger>
+		<Root level="info" additivity="true">
+			<AppenderRef ref="RollingFile_Info"/>
+		</Root>
+	</Loggers>
+</Configuration>
