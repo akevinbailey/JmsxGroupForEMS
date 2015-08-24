@@ -7,8 +7,5 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/TIBCO EMS 8.2 Client"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Simple XML Config File 2.7.1"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/TIBCO EMS 8.2 Admin"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jQuery"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jQuery UI Smothness"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/node_modules"/>
 	<classpathentry kind="output" path="out/production/JMSXGroupForEMS"/>
 </classpath>
