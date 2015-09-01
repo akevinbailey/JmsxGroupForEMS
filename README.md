@@ -4,7 +4,7 @@ TIBCO Enterprise Message Service (EMS) does not natively support JmsxGroup funct
 
 JmsxGroupForEMS also supports latest value only, were only messages with newer date-times than previous messages are sent to the JmsxGroup, and it supports JMSXGroupSeq, where the messages in a JmsxGroup are sent to the consumers in the numerical order of the JMSXGroupSeq property.
 
-To run JmsxGroupForEMS download JmsxGroupForEMS.7z and and unzip it (using 7Zip), and type the command "java -jar JmsxGroupForEMS.jar -?" (without the quotes) for help.  The JmsxGroupForEMS.7z file also includes example XML configuration files.
+To run JmsxGroupForEMS download JmsxGroupForEMS.7z and unzip it (using 7Zip).  Next, execute the command "java -jar JmsxGroupForEMS.jar -?" (without the quotes) for help.  The JmsxGroupForEMS.7z file also includes example XML configuration files.
 
 NOTES:
 
